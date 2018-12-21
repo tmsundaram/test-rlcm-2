@@ -1,0 +1,72 @@
+##################################################
+##              Content Repository              ##
+##################################################
+# Absolute or relative path to repository base (all actual repositories will be under this)
+studio.repo.basePath: /opt/crafter/data/repos
+
+############################################################
+##                    Preview Deployer                    ##
+############################################################
+
+# Default preview deployer URL (can be overridden per site)
+studio.preview.defaultPreviewDeployerUrl: http://localhost:9191/api/1/target/deploy/preview/{siteName}
+# Default preview create target URL (can be overridden per site)
+studio.preview.createTargetUrl: http://localhost:9191/api/1/target/create
+# Default preview create target URL (can be overridden per site)
+studio.preview.deleteTargetUrl: http://localhost:9191/api/1/target/delete/{siteEnv}/{siteName}
+# URL to the preview Crafter Engine
+studio.preview.engineUrl: http://localhost:8080
+# URL to the preview repository (aka Sandbox) where authors save work-in-progress
+studio.preview.repoUrl: /opt/crafter/data/repos/sites/{siteName}/sandbox
+
+############################################################
+##                   Preview Search                       ##
+############################################################
+
+studio.preview.search.createUrl: http://localhost:8080/crafter-search/api/2/admin/index/create
+studio.preview.search.deleteUrl: http://localhost:8080/crafter-search/api/2/admin/index/delete/{siteName}
+
+##################################################
+##                   Database                   ##
+##################################################
+
+# Format:
+# jdbc:DATABASE_PLATFORM;databaseName=DATABASE_NAME;create=true;user=DATABASE_USERNAME;password=DATABASE_USER_PASSWORD
+# Note that a relative path is not suitable for a production deployment
+studio.db.url: jdbc:mariadb://127.0.0.1:33306/crafter?user=crafter&password=crafter
+
+# Connection string used to initialize database
+studio.db.initializer.url: jdbc:mariadb://127.0.0.1:33306?user=root&password=
+# Port number for the embedded database (note this must match what's in the connection URLs in this config file)
+studio.db.port: 33306
+# Data folder for the embedded database
+studio.db.dataPath: /opt/crafter/data/db
+
+##################################################
+##        SMTP Configuration (Email)            ##
+##################################################
+
+# Default value for from header when sending emails.
+studio.mail.from.default: noreply@test.com
+# SMTP server name to send emails.
+studio.mail.host: localhost
+# SMTP port number to send emails.
+studio.mail.port: 25
+# SMTP username for authenticated access when sending emails.
+#studio.mail.username:
+# SMTP password for authenticated access when sending emails.
+#studio.mail.password:
+# Turn on/off (value true/false) SMTP authenaticated access protocol.
+studio.mail.smtp.auth: false
+# Enable/disable (value true/false) SMTP TLS protocol when sending emails.
+studio.mail.smtp.starttls.enable: false
+# Enable/disable (value true/false) SMTP EHLO protocol when sending emails.
+studio.mail.smtp.ehlo: true
+# Enable/disable (value true/false) debug mode for email service. Enabling debug mode allows tracking/debugging communication between email service and SMTP server.
+#studio.mail.debug: false
+
+##################################################
+##        Dependency Management                 ##
+##################################################
+# added /static-assets/images/.* for BMBF
+studio.configuration.dependency.itemSpecificPatterns: /site/components/page/.*,/static-assets/page/.*,/site/components/item/.*,/static-assets/item/.*,/static-assets/images/.*

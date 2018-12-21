@@ -1,0 +1,8 @@
+/opt/crafter/logs/* /opt/crafter/logs/apache/* /opt/crafter/logs/deployer/* /opt/crafter/logs/mongodb/* /opt/crafter/logs/solr/* /opt/crafter/logs/tomcat/* {
+	daily
+	rotate 50
+	size 10M
+	compress
+	copytruncate
+	missingok
+}
